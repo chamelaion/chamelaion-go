@@ -9,7 +9,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/stainless-sdks/chamelaion-go/packages/param"
+	"github.com/chamelaion/chamelaion-go/packages/param"
 )
 
 var encoders sync.Map // map[reflect.Type]encoderFunc

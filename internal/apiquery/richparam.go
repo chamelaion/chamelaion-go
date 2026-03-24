@@ -1,7 +1,7 @@
 package apiquery
 
 import (
-	"github.com/stainless-sdks/chamelaion-go/packages/param"
+	"github.com/chamelaion/chamelaion-go/packages/param"
 	"reflect"
 )
 

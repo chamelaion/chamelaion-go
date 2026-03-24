@@ -1,7 +1,7 @@
 package chamelaion
 
 import (
-	"github.com/stainless-sdks/chamelaion-go/packages/param"
+	"github.com/chamelaion/chamelaion-go/packages/param"
 	"io"
 	"time"
 )

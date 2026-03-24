@@ -1,8 +1,8 @@
 package sentinel_test
 
 import (
-	"github.com/stainless-sdks/chamelaion-go/internal/encoding/json/sentinel"
-	"github.com/stainless-sdks/chamelaion-go/packages/param"
+	"github.com/chamelaion/chamelaion-go/internal/encoding/json/sentinel"
+	"github.com/chamelaion/chamelaion-go/packages/param"
 	"reflect"
 	"slices"
 	"testing"

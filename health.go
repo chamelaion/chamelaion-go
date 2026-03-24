@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"slices"
 
-	"github.com/stainless-sdks/chamelaion-go/internal/requestconfig"
-	"github.com/stainless-sdks/chamelaion-go/option"
+	"github.com/chamelaion/chamelaion-go/internal/requestconfig"
+	"github.com/chamelaion/chamelaion-go/option"
 )
 
 // HealthService contains methods and other services that help with interacting

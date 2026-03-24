@@ -1,4 +1,4 @@
-module github.com/stainless-sdks/chamelaion-go
+module github.com/chamelaion/chamelaion-go
 
 go 1.22
 

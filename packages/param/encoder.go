@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	shimjson "github.com/stainless-sdks/chamelaion-go/internal/encoding/json"
+	shimjson "github.com/chamelaion/chamelaion-go/internal/encoding/json"
 
 	"github.com/tidwall/sjson"
 )

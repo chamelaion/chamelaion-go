@@ -3,8 +3,8 @@ package apijson_test
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/stainless-sdks/chamelaion-go/internal/apijson"
-	"github.com/stainless-sdks/chamelaion-go/packages/param"
+	"github.com/chamelaion/chamelaion-go/internal/apijson"
+	"github.com/chamelaion/chamelaion-go/packages/param"
 	"reflect"
 	"testing"
 )
