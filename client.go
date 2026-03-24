@@ -8,8 +8,8 @@ import (
 	"os"
 	"slices"
 
-	"github.com/stainless-sdks/chamelaion-go/internal/requestconfig"
-	"github.com/stainless-sdks/chamelaion-go/option"
+	"github.com/chamelaion/chamelaion-go/internal/requestconfig"
+	"github.com/chamelaion/chamelaion-go/option"
 )
 
 // Client creates a struct with services and top level methods that help with

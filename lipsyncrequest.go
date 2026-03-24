@@ -11,12 +11,12 @@ import (
 	"slices"
 	"time"
 
-	"github.com/stainless-sdks/chamelaion-go/internal/apijson"
-	"github.com/stainless-sdks/chamelaion-go/internal/apiquery"
-	"github.com/stainless-sdks/chamelaion-go/internal/requestconfig"
-	"github.com/stainless-sdks/chamelaion-go/option"
-	"github.com/stainless-sdks/chamelaion-go/packages/param"
-	"github.com/stainless-sdks/chamelaion-go/packages/respjson"
+	"github.com/chamelaion/chamelaion-go/internal/apijson"
+	"github.com/chamelaion/chamelaion-go/internal/apiquery"
+	"github.com/chamelaion/chamelaion-go/internal/requestconfig"
+	"github.com/chamelaion/chamelaion-go/option"
+	"github.com/chamelaion/chamelaion-go/packages/param"
+	"github.com/chamelaion/chamelaion-go/packages/respjson"
 )
 
 // LipsyncRequestService contains methods and other services that help with

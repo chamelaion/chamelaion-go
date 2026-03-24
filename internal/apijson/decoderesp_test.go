@@ -2,8 +2,8 @@ package apijson_test
 
 import (
 	"encoding/json"
-	"github.com/stainless-sdks/chamelaion-go/internal/apijson"
-	"github.com/stainless-sdks/chamelaion-go/packages/respjson"
+	"github.com/chamelaion/chamelaion-go/internal/apijson"
+	"github.com/chamelaion/chamelaion-go/packages/respjson"
 	"testing"
 )
 
