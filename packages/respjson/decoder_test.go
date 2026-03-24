@@ -3,8 +3,8 @@ package respjson_test
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/stainless-sdks/chamelaion-go/internal/apijson"
-	rj "github.com/stainless-sdks/chamelaion-go/packages/respjson"
+	"github.com/chamelaion/chamelaion-go/internal/apijson"
+	rj "github.com/chamelaion/chamelaion-go/packages/respjson"
 	"reflect"
 	"testing"
 )
