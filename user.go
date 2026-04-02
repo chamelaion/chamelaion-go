@@ -13,6 +13,8 @@ import (
 	"github.com/chamelaion/chamelaion-go/packages/respjson"
 )
 
+// Endpoints for API token identity.
+//
 // UserService contains methods and other services that help with interacting with
 // the chamelaion API.
 //
@@ -32,7 +34,7 @@ func NewUserService(opts ...option.RequestOption) (r UserService) {
 	return
 }
 
-// Returns the identity associated with the API token used for authentication.
+// Returns the identity associated with the authenticated API token.
 func (r *UserService) GetCurrent(ctx context.Context, opts ...option.RequestOption) (res *UserGetCurrentResponse, err error) {
 	opts = slices.Concat(r.options, opts)
 	path := "v1/users/me"
@@ -41,7 +43,7 @@ func (r *UserService) GetCurrent(ctx context.Context, opts ...option.RequestOpti
 }
 
 type UserGetCurrentResponse struct {
-	// Display name of the API token
+	// Display name of the API token.
 	Name string `json:"name" api:"required"`
 	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
 	JSON struct {

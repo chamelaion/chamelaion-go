@@ -19,6 +19,8 @@ import (
 	"github.com/chamelaion/chamelaion-go/packages/respjson"
 )
 
+// Endpoints for creating and retrieving lip sync requests.
+//
 // LipsyncRequestService contains methods and other services that help with
 // interacting with the chamelaion API.
 //
@@ -38,7 +40,7 @@ func NewLipsyncRequestService(opts ...option.RequestOption) (r LipsyncRequestSer
 	return
 }
 
-// Returns a single lipsync request by ID or reference ID.
+// Returns a single lip sync request by request UUID or `reference_id`.
 func (r *LipsyncRequestService) Get(ctx context.Context, id string, opts ...option.RequestOption) (res *LipsyncRequest, err error) {
 	opts = slices.Concat(r.options, opts)
 	if id == "" {
@@ -50,7 +52,7 @@ func (r *LipsyncRequestService) Get(ctx context.Context, id string, opts ...opti
 	return res, err
 }
 
-// Returns a paginated list of lipsync requests for the authenticated account.
+// Returns a paginated list of lip sync requests for the authenticated account.
 func (r *LipsyncRequestService) List(ctx context.Context, query LipsyncRequestListParams, opts ...option.RequestOption) (res *LipsyncRequestListResponse, err error) {
 	opts = slices.Concat(r.options, opts)
 	path := "v1/lipsync/requests"
@@ -59,15 +61,22 @@ func (r *LipsyncRequestService) List(ctx context.Context, query LipsyncRequestLi
 }
 
 type LipsyncRequest struct {
-	ID           string    `json:"id" api:"required" format:"uuid"`
-	CreatedAt    time.Time `json:"created_at" api:"required" format:"date-time"`
-	Status       string    `json:"status" api:"required"`
-	ErrorMessage string    `json:"error_message"`
-	FinishedAt   time.Time `json:"finished_at" format:"date-time"`
-	// Time-limited signed download URL for the generated output file.
-	OutputURL   string    `json:"output_url" format:"uri"`
-	ReferenceID string    `json:"reference_id"`
-	StartedAt   time.Time `json:"started_at" format:"date-time"`
+	// Lip sync request ID.
+	ID string `json:"id" api:"required" format:"uuid"`
+	// Request creation time in UTC.
+	CreatedAt time.Time `json:"created_at" api:"required" format:"date-time"`
+	// Current request status.
+	Status string `json:"status" api:"required"`
+	// Failure message when status is `failed`.
+	ErrorMessage string `json:"error_message"`
+	// Request processing completion time in UTC.
+	FinishedAt time.Time `json:"finished_at" format:"date-time"`
+	// URL to the generated output media, when available.
+	OutputURL string `json:"output_url" format:"uri"`
+	// Client-provided identifier for this request.
+	ReferenceID string `json:"reference_id"`
+	// Request processing start time in UTC.
+	StartedAt time.Time `json:"started_at" format:"date-time"`
 	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
 	JSON struct {
 		ID           respjson.Field
@@ -108,9 +117,12 @@ func (r *LipsyncRequestListResponse) UnmarshalJSON(data []byte) error {
 }
 
 type LipsyncRequestListResponsePagination struct {
-	Limit  int64 `json:"limit" api:"required"`
+	// Applied page size.
+	Limit int64 `json:"limit" api:"required"`
+	// Applied result offset.
 	Offset int64 `json:"offset" api:"required"`
-	Total  int64 `json:"total" api:"required"`
+	// Total number of matching records.
+	Total int64 `json:"total" api:"required"`
 	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
 	JSON struct {
 		Limit       respjson.Field
@@ -128,11 +140,11 @@ func (r *LipsyncRequestListResponsePagination) UnmarshalJSON(data []byte) error 
 }
 
 type LipsyncRequestListParams struct {
-	// Maximum number of results to return (default 20)
+	// Maximum number of items to return.
 	Limit param.Opt[int64] `query:"limit,omitzero" json:"-"`
-	// Number of results to skip (default 0)
+	// Number of items to skip before returning results.
 	Offset param.Opt[int64] `query:"offset,omitzero" json:"-"`
-	// Filter by reference ID (exact match)
+	// Filter requests by exact `reference_id`.
 	ReferenceID param.Opt[string] `query:"reference_id,omitzero" json:"-"`
 	paramObj
 }

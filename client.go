@@ -17,8 +17,11 @@ import (
 // directly, and instead use the [NewClient] method instead.
 type Client struct {
 	options []option.RequestOption
-	Health  HealthService
-	Users   UserService
+	// Service health endpoint.
+	Health HealthService
+	// Endpoints for API token identity.
+	Users UserService
+	// Endpoints for creating and retrieving lip sync requests.
 	Lipsync LipsyncService
 }
 
