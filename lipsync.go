@@ -18,6 +18,8 @@ import (
 	"github.com/chamelaion/chamelaion-go/packages/respjson"
 )
 
+// Endpoints for creating and retrieving lip sync requests.
+//
 // LipsyncService contains methods and other services that help with interacting
 // with the chamelaion API.
 //
@@ -25,7 +27,8 @@ import (
 // automatically. You should not instantiate this service directly, and instead use
 // the [NewLipsyncService] method instead.
 type LipsyncService struct {
-	options  []option.RequestOption
+	options []option.RequestOption
+	// Endpoints for creating and retrieving lip sync requests.
 	Requests LipsyncRequestService
 }
 
@@ -39,8 +42,8 @@ func NewLipsyncService(opts ...option.RequestOption) (r LipsyncService) {
 	return
 }
 
-// Starts a lip sync generation with exactly one video and one audio input. Returns
-// the created request identifier and current processing status.
+// Starts a lip sync job from exactly one remote video URL and one remote audio
+// URL. The response includes a request identifier to poll later.
 func (r *LipsyncService) Generate(ctx context.Context, body LipsyncGenerateParams, opts ...option.RequestOption) (res *LipsyncGenerate, err error) {
 	opts = slices.Concat(r.options, opts)
 	path := "v1/lipsync/generate"
@@ -48,7 +51,7 @@ func (r *LipsyncService) Generate(ctx context.Context, body LipsyncGenerateParam
 	return res, err
 }
 
-// Starts a lip sync generation by uploading one video file and one audio file as
+// Starts a lip sync job by uploading one video file and one audio file as
 // multipart form-data.
 func (r *LipsyncService) GenerateWithMedia(ctx context.Context, body LipsyncGenerateWithMediaParams, opts ...option.RequestOption) (res *LipsyncGenerate, err error) {
 	opts = slices.Concat(r.options, opts)
@@ -58,10 +61,12 @@ func (r *LipsyncService) GenerateWithMedia(ctx context.Context, body LipsyncGene
 }
 
 type LipsyncGenerate struct {
-	// ID of the created lipsync request
+	// Identifier of the created lip sync request.
 	RequestID string `json:"request_id" api:"required" format:"uuid"`
-	// Current status of the generated request
-	Status string `json:"status" api:"required"`
+	// Current state of the newly created request.
+	//
+	// Any of "success".
+	Status LipsyncGenerateStatus `json:"status" api:"required"`
 	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
 	JSON struct {
 		RequestID   respjson.Field
@@ -77,10 +82,19 @@ func (r *LipsyncGenerate) UnmarshalJSON(data []byte) error {
 	return apijson.UnmarshalRoot(data, r)
 }
 
+// Current state of the newly created request.
+type LipsyncGenerateStatus string
+
+const (
+	LipsyncGenerateStatusSuccess LipsyncGenerateStatus = "success"
+)
+
 type LipsyncGenerateParams struct {
-	// Exactly one video and one audio input (order does not matter)
+	// Exactly one video input and one audio input (order does not matter).
 	Inputs []LipsyncGenerateParamsInput `json:"inputs,omitzero" api:"required"`
-	// Optional client-provided identifier for retrieving the request later
+	// Disable active speaker detection and use max-face lipsync preprocessing.
+	DisableActiveSpeakerDetection param.Opt[bool] `json:"disable_active_speaker_detection,omitzero"`
+	// Optional client-provided identifier for later retrieval.
 	ReferenceID param.Opt[string] `json:"reference_id,omitzero"`
 	paramObj
 }
@@ -95,11 +109,11 @@ func (r *LipsyncGenerateParams) UnmarshalJSON(data []byte) error {
 
 // The properties Type, URL are required.
 type LipsyncGenerateParamsInput struct {
-	// Type of input media
+	// Type of input media.
 	//
 	// Any of "video", "audio".
 	Type string `json:"type,omitzero" api:"required"`
-	// URL of the media resource
+	// URL of the media resource.
 	URL string `json:"url" api:"required" format:"uri"`
 	paramObj
 }
@@ -119,14 +133,18 @@ func init() {
 }
 
 type LipsyncGenerateWithMediaParams struct {
-	// Target audio file
+	// Target audio file.
 	Audio io.Reader `json:"audio,omitzero" api:"required" format:"binary"`
-	// Source video file
+	// Source video file.
 	Video io.Reader `json:"video,omitzero" api:"required" format:"binary"`
-	// Optional model selector. If provided, must be `lipsync-2`.
-	Model param.Opt[string] `json:"model,omitzero"`
-	// Optional client-provided identifier for retrieving the request later
+	// Disable active speaker detection and use max-face lipsync preprocessing.
+	DisableActiveSpeakerDetection param.Opt[bool] `json:"disable_active_speaker_detection,omitzero"`
+	// Optional client-provided identifier for later retrieval.
 	ReferenceID param.Opt[string] `json:"reference_id,omitzero"`
+	// Optional model selector.
+	//
+	// Any of "lipsync-2".
+	Model LipsyncGenerateWithMediaParamsModel `json:"model,omitzero"`
 	paramObj
 }
 
@@ -147,3 +165,10 @@ func (r LipsyncGenerateWithMediaParams) MarshalMultipart() (data []byte, content
 	}
 	return buf.Bytes(), writer.FormDataContentType(), nil
 }
+
+// Optional model selector.
+type LipsyncGenerateWithMediaParamsModel string
+
+const (
+	LipsyncGenerateWithMediaParamsModelLipsync2 LipsyncGenerateWithMediaParamsModel = "lipsync-2"
+)

@@ -32,12 +32,13 @@ func TestLipsyncGenerateWithOptionalParams(t *testing.T) {
 	_, err := client.Lipsync.Generate(context.TODO(), chamelaion.LipsyncGenerateParams{
 		Inputs: []chamelaion.LipsyncGenerateParamsInput{{
 			Type: "video",
-			URL:  "https://example.com",
+			URL:  "https://example.com/source/video.mp4",
 		}, {
-			Type: "video",
-			URL:  "https://example.com",
+			Type: "audio",
+			URL:  "https://example.com/source/audio.wav",
 		}},
-		ReferenceID: chamelaion.String("reference_id"),
+		DisableActiveSpeakerDetection: chamelaion.Bool(false),
+		ReferenceID:                   chamelaion.String("demo-001"),
 	})
 	if err != nil {
 		var apierr *chamelaion.Error
@@ -63,10 +64,11 @@ func TestLipsyncGenerateWithMediaWithOptionalParams(t *testing.T) {
 		option.WithAPIKey("My API Key"),
 	)
 	_, err := client.Lipsync.GenerateWithMedia(context.TODO(), chamelaion.LipsyncGenerateWithMediaParams{
-		Audio:       io.Reader(bytes.NewBuffer([]byte("Example data"))),
-		Video:       io.Reader(bytes.NewBuffer([]byte("Example data"))),
-		Model:       chamelaion.String("lipsync-2"),
-		ReferenceID: chamelaion.String("reference_id"),
+		Audio:                         io.Reader(bytes.NewBuffer([]byte("Example data"))),
+		Video:                         io.Reader(bytes.NewBuffer([]byte("Example data"))),
+		DisableActiveSpeakerDetection: chamelaion.Bool(true),
+		Model:                         chamelaion.LipsyncGenerateWithMediaParamsModelLipsync2,
+		ReferenceID:                   chamelaion.String("reference_id"),
 	})
 	if err != nil {
 		var apierr *chamelaion.Error
