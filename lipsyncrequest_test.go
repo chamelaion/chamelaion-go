@@ -27,7 +27,7 @@ func TestLipsyncRequestGet(t *testing.T) {
 		option.WithBearerToken("My Bearer Token"),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.Lipsync.Requests.Get(context.TODO(), "id")
+	_, err := client.Lipsync.Requests.Get(context.TODO(), "x")
 	if err != nil {
 		var apierr *chamelaion.Error
 		if errors.As(err, &apierr) {

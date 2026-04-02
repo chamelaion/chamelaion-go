@@ -11,6 +11,8 @@ import (
 	"github.com/chamelaion/chamelaion-go/option"
 )
 
+// Service health endpoint.
+//
 // HealthService contains methods and other services that help with interacting
 // with the chamelaion API.
 //
@@ -30,7 +32,7 @@ func NewHealthService(opts ...option.RequestOption) (r HealthService) {
 	return
 }
 
-// Returns 200 if the service is running. No authentication required.
+// Returns HTTP 200 when the service is running. No authentication required.
 func (r *HealthService) Check(ctx context.Context, opts ...option.RequestOption) (err error) {
 	var preClientOpts = []option.RequestOption{requestconfig.WithSecurity(requestconfig.Security{})}
 	opts = slices.Concat(preClientOpts, r.options, opts)
