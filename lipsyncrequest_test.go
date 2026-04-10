@@ -27,7 +27,7 @@ func TestLipsyncRequestGet(t *testing.T) {
 		option.WithBearerToken("My Bearer Token"),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.Lipsync.Requests.Get(context.TODO(), "x")
+	_, err := client.Lipsync.Requests.Get(context.TODO(), "6f82a2d8-a6d4-4e8a-a0fa-e8b09823a2d8")
 	if err != nil {
 		var apierr *chamelaion.Error
 		if errors.As(err, &apierr) {
@@ -52,9 +52,9 @@ func TestLipsyncRequestListWithOptionalParams(t *testing.T) {
 		option.WithAPIKey("My API Key"),
 	)
 	_, err := client.Lipsync.Requests.List(context.TODO(), chamelaion.LipsyncRequestListParams{
-		Limit:       chamelaion.Int(1),
+		Limit:       chamelaion.Int(20),
 		Offset:      chamelaion.Int(0),
-		ReferenceID: chamelaion.String("reference_id"),
+		ReferenceID: chamelaion.String("batch-2026-04"),
 	})
 	if err != nil {
 		var apierr *chamelaion.Error
