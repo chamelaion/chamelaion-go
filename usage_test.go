@@ -26,8 +26,9 @@ func TestUsage(t *testing.T) {
 		option.WithBearerToken("My Bearer Token"),
 		option.WithAPIKey("My API Key"),
 	)
-	err := client.Health.Check(context.TODO())
+	response, err := client.Health.Check(context.TODO())
 	if err != nil {
 		t.Fatalf("err should be nil: %s", err.Error())
 	}
+	t.Logf("%+v\n", response.Status)
 }
