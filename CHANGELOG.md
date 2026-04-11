@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.0 (2026-04-11)
+
+Full Changelog: [v0.1.0...v0.2.0](https://github.com/chamelaion/chamelaion-go/compare/v0.1.0...v0.2.0)
+
+### Features
+
+* **api:** manual updates ([8872c97](https://github.com/chamelaion/chamelaion-go/commit/8872c9745bda4bfaf61fe82e31517bafb6fd4dba))
+
 ## 0.1.0 (2026-04-02)
 
 Full Changelog: [v0.0.2...v0.1.0](https://github.com/chamelaion/chamelaion-go/compare/v0.0.2...v0.1.0)
