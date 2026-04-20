@@ -266,11 +266,11 @@ func WithEnvironmentProduction() RequestOption {
 	return requestconfig.WithDefaultBaseURL("https://api.chamelaion.com/api/")
 }
 
-// WithEnvironmentEnvironment1 returns a RequestOption that sets the current
-// environment to be the "environment_1" environment. An environment specifies which base URL
+// WithEnvironmentStaging returns a RequestOption that sets the current
+// environment to be the "staging" environment. An environment specifies which base URL
 // to use by default.
-func WithEnvironmentEnvironment1() RequestOption {
-	return requestconfig.WithDefaultBaseURL("https://dev.api.chamelaion.com/api/")
+func WithEnvironmentStaging() RequestOption {
+	return requestconfig.WithDefaultBaseURL("https://api.dev.chamelaion.com/api/")
 }
 
 // WithBearerToken returns a RequestOption that sets the client setting "bearer_token".

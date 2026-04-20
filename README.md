@@ -56,7 +56,7 @@ func main() {
 	client := chamelaion.NewClient(
 		option.WithBearerToken("My Bearer Token"), // defaults to os.LookupEnv("CHAMELAION_BEARER_TOKEN")
 		option.WithAPIKey("My API Key"),           // defaults to os.LookupEnv("CHAMELAION_API_KEY")
-		option.WithEnvironmentEnvironment1(),      // defaults to option.WithEnvironmentProduction()
+		option.WithEnvironmentStaging(),           // defaults to option.WithEnvironmentProduction()
 	)
 	response, err := client.Health.Check(context.TODO())
 	if err != nil {
