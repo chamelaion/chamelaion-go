@@ -28,7 +28,7 @@ Or to pin the version:
 <!-- x-release-please-start-version -->
 
 ```sh
-go get -u 'github.com/chamelaion/chamelaion-go@v0.1.0'
+go get -u 'github.com/chamelaion/chamelaion-go@v0.2.0'
 ```
 
 <!-- x-release-please-end -->
@@ -46,6 +46,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 
 	"github.com/chamelaion/chamelaion-go"
 	"github.com/chamelaion/chamelaion-go/option"
@@ -57,10 +58,11 @@ func main() {
 		option.WithAPIKey("My API Key"),           // defaults to os.LookupEnv("CHAMELAION_API_KEY")
 		option.WithEnvironmentEnvironment1(),      // defaults to option.WithEnvironmentProduction()
 	)
-	err := client.Health.Check(context.TODO())
+	response, err := client.Health.Check(context.TODO())
 	if err != nil {
 		panic(err.Error())
 	}
+	fmt.Printf("%+v\n", response.Status)
 }
 
 ```
@@ -297,7 +299,7 @@ When the API returns a non-success status code, we return an error with type
 To handle errors, we recommend that you use the `errors.As` pattern:
 
 ```go
-err := client.Health.Check(context.TODO())
+_, err := client.Health.Check(context.TODO())
 if err != nil {
 	var apierr *chamelaion.Error
 	if errors.As(err, &apierr) {
@@ -389,11 +391,11 @@ you need to examine response headers, status codes, or other details.
 ```go
 // Create a variable to store the HTTP response
 var response *http.Response
-err := client.Health.Check(context.TODO(), option.WithResponseInto(&response))
+response, err := client.Health.Check(context.TODO(), option.WithResponseInto(&response))
 if err != nil {
 	// handle error
 }
-null
+fmt.Printf("%+v\n", response)
 
 fmt.Printf("Status Code: %d\n", response.StatusCode)
 fmt.Printf("Headers: %+#v\n", response.Header)

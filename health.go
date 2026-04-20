@@ -7,8 +7,10 @@ import (
 	"net/http"
 	"slices"
 
+	"github.com/chamelaion/chamelaion-go/internal/apijson"
 	"github.com/chamelaion/chamelaion-go/internal/requestconfig"
 	"github.com/chamelaion/chamelaion-go/option"
+	"github.com/chamelaion/chamelaion-go/packages/respjson"
 )
 
 // Service health endpoint.
@@ -33,11 +35,33 @@ func NewHealthService(opts ...option.RequestOption) (r HealthService) {
 }
 
 // Returns HTTP 200 when the service is running. No authentication required.
-func (r *HealthService) Check(ctx context.Context, opts ...option.RequestOption) (err error) {
+func (r *HealthService) Check(ctx context.Context, opts ...option.RequestOption) (res *HealthCheckResponse, err error) {
 	var preClientOpts = []option.RequestOption{requestconfig.WithSecurity(requestconfig.Security{})}
 	opts = slices.Concat(preClientOpts, r.options, opts)
-	opts = append([]option.RequestOption{option.WithHeader("Accept", "*/*")}, opts...)
 	path := "health"
-	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, nil, opts...)
-	return err
+	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
+	return res, err
 }
+
+type HealthCheckResponse struct {
+	// Any of "ok".
+	Status HealthCheckResponseStatus `json:"status" api:"required"`
+	// JSON contains metadata for fields, check presence with [respjson.Field.Valid].
+	JSON struct {
+		Status      respjson.Field
+		ExtraFields map[string]respjson.Field
+		raw         string
+	} `json:"-"`
+}
+
+// Returns the unmodified JSON received from the API
+func (r HealthCheckResponse) RawJSON() string { return r.JSON.raw }
+func (r *HealthCheckResponse) UnmarshalJSON(data []byte) error {
+	return apijson.UnmarshalRoot(data, r)
+}
+
+type HealthCheckResponseStatus string
+
+const (
+	HealthCheckResponseStatusOk HealthCheckResponseStatus = "ok"
+)

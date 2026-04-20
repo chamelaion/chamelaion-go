@@ -1,8 +1,12 @@
 # Health
 
+Response Types:
+
+- <a href="https://pkg.go.dev/github.com/chamelaion/chamelaion-go">chamelaion</a>.<a href="https://pkg.go.dev/github.com/chamelaion/chamelaion-go#HealthCheckResponse">HealthCheckResponse</a>
+
 Methods:
 
-- <code title="get /health">client.Health.<a href="https://pkg.go.dev/github.com/chamelaion/chamelaion-go#HealthService.Check">Check</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>) <a href="https://pkg.go.dev/builtin#error">error</a></code>
+- <code title="get /health">client.Health.<a href="https://pkg.go.dev/github.com/chamelaion/chamelaion-go#HealthService.Check">Check</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>) (\*<a href="https://pkg.go.dev/github.com/chamelaion/chamelaion-go">chamelaion</a>.<a href="https://pkg.go.dev/github.com/chamelaion/chamelaion-go#HealthCheckResponse">HealthCheckResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
 
 # Users
 

@@ -27,7 +27,7 @@ func TestHealthCheck(t *testing.T) {
 		option.WithBearerToken("My Bearer Token"),
 		option.WithAPIKey("My API Key"),
 	)
-	err := client.Health.Check(context.TODO())
+	_, err := client.Health.Check(context.TODO())
 	if err != nil {
 		var apierr *chamelaion.Error
 		if errors.As(err, &apierr) {

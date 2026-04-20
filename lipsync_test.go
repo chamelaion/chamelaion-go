@@ -32,13 +32,13 @@ func TestLipsyncGenerateWithOptionalParams(t *testing.T) {
 	_, err := client.Lipsync.Generate(context.TODO(), chamelaion.LipsyncGenerateParams{
 		Inputs: []chamelaion.LipsyncGenerateParamsInput{{
 			Type: "video",
-			URL:  "https://example.com/source/video.mp4",
+			URL:  "https://cdn.example.com/episodes/42.mp4",
 		}, {
 			Type: "audio",
-			URL:  "https://example.com/source/audio.wav",
+			URL:  "https://cdn.example.com/dubs/42-japanese.wav",
 		}},
 		DisableActiveSpeakerDetection: chamelaion.Bool(false),
-		ReferenceID:                   chamelaion.String("demo-001"),
+		ReferenceID:                   chamelaion.String("dub-episode-42"),
 	})
 	if err != nil {
 		var apierr *chamelaion.Error
@@ -66,9 +66,9 @@ func TestLipsyncGenerateWithMediaWithOptionalParams(t *testing.T) {
 	_, err := client.Lipsync.GenerateWithMedia(context.TODO(), chamelaion.LipsyncGenerateWithMediaParams{
 		Audio:                         io.Reader(bytes.NewBuffer([]byte("Example data"))),
 		Video:                         io.Reader(bytes.NewBuffer([]byte("Example data"))),
-		DisableActiveSpeakerDetection: chamelaion.Bool(true),
+		DisableActiveSpeakerDetection: chamelaion.Bool(false),
 		Model:                         chamelaion.LipsyncGenerateWithMediaParamsModelLipsync2,
-		ReferenceID:                   chamelaion.String("reference_id"),
+		ReferenceID:                   chamelaion.String("upload-demo-01"),
 	})
 	if err != nil {
 		var apierr *chamelaion.Error
