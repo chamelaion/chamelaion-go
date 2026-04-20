@@ -28,7 +28,7 @@ Or to pin the version:
 <!-- x-release-please-start-version -->
 
 ```sh
-go get -u 'github.com/chamelaion/chamelaion-go@v0.2.0'
+go get -u 'github.com/chamelaion/chamelaion-go@v0.3.0'
 ```
 
 <!-- x-release-please-end -->
@@ -56,7 +56,7 @@ func main() {
 	client := chamelaion.NewClient(
 		option.WithBearerToken("My Bearer Token"), // defaults to os.LookupEnv("CHAMELAION_BEARER_TOKEN")
 		option.WithAPIKey("My API Key"),           // defaults to os.LookupEnv("CHAMELAION_API_KEY")
-		option.WithEnvironmentEnvironment1(),      // defaults to option.WithEnvironmentProduction()
+		option.WithEnvironmentStaging(),           // defaults to option.WithEnvironmentProduction()
 	)
 	response, err := client.Health.Check(context.TODO())
 	if err != nil {
