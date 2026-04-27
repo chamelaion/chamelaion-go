@@ -6,7 +6,7 @@
 
 <!-- x-release-please-end -->
 
-The Chamelaion Go library provides convenient access to the Chamelaion REST API
+The Chamelaion Go library provides convenient access to the [Chamelaion REST API](https://docs.chamelaion.com/)
 from applications written in Go.
 
 It is generated with [Stainless](https://www.stainless.com/).
