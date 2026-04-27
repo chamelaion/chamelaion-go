@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.4.0 (2026-04-27)
+
+Full Changelog: [v0.3.0...v0.4.0](https://github.com/chamelaion/chamelaion-go/compare/v0.3.0...v0.4.0)
+
+### Features
+
+* **api:** manual updates ([f46c391](https://github.com/chamelaion/chamelaion-go/commit/f46c39145311d1cf6c4f6576fc0419be870bce98))
+* **go:** add default http client with timeout ([b4f6e57](https://github.com/chamelaion/chamelaion-go/commit/b4f6e570994f63175701c4afbfe12ee328a655ab))
+
+
+### Chores
+
+* **internal:** more robust bootstrap script ([35352b6](https://github.com/chamelaion/chamelaion-go/commit/35352b6aafdc54c2ce5c6e24e3ec15094bef7152))
+
 ## 0.3.0 (2026-04-20)
 
 Full Changelog: [v0.2.0...v0.3.0](https://github.com/chamelaion/chamelaion-go/compare/v0.2.0...v0.3.0)
