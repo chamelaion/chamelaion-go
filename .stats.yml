@@ -1,4 +1,4 @@
 configured_endpoints: 6
-openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/chamelaion-gmbh%2Fchamelaion-94e02b43740d51063775fe34e5ce9ef3450459c29970b699d83a670d6d54ca6b.yml
-openapi_spec_hash: 8ba154059bae6f2b3b4cafd01839f3c7
+openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/chamelaion-gmbh/chamelaion-daed1d3cd14a44392390788c9fbbfaf1ab4f620a593aac43652911900d94a44d.yml
+openapi_spec_hash: c0a457922c351fecbdd96834fae44570
 config_hash: 306d743e673e052ad9984e34d5f4aab0
