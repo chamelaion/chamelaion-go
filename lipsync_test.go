@@ -67,7 +67,6 @@ func TestLipsyncGenerateWithMediaWithOptionalParams(t *testing.T) {
 		Audio:                         io.Reader(bytes.NewBuffer([]byte("Example data"))),
 		Video:                         io.Reader(bytes.NewBuffer([]byte("Example data"))),
 		DisableActiveSpeakerDetection: chamelaion.Bool(false),
-		Model:                         chamelaion.LipsyncGenerateWithMediaParamsModelLipsync2,
 		ReferenceID:                   chamelaion.String("upload-demo-01"),
 	})
 	if err != nil {
