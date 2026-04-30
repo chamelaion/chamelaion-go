@@ -141,10 +141,6 @@ type LipsyncGenerateWithMediaParams struct {
 	DisableActiveSpeakerDetection param.Opt[bool] `json:"disable_active_speaker_detection,omitzero"`
 	// Optional client-provided identifier for later retrieval.
 	ReferenceID param.Opt[string] `json:"reference_id,omitzero"`
-	// Optional model selector.
-	//
-	// Any of "lipsync-2".
-	Model LipsyncGenerateWithMediaParamsModel `json:"model,omitzero"`
 	paramObj
 }
 
@@ -165,10 +161,3 @@ func (r LipsyncGenerateWithMediaParams) MarshalMultipart() (data []byte, content
 	}
 	return buf.Bytes(), writer.FormDataContentType(), nil
 }
-
-// Optional model selector.
-type LipsyncGenerateWithMediaParamsModel string
-
-const (
-	LipsyncGenerateWithMediaParamsModelLipsync2 LipsyncGenerateWithMediaParamsModel = "lipsync-2"
-)
