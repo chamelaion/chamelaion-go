@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.7.0 (2026-04-30)
+
+Full Changelog: [v0.6.0...v0.7.0](https://github.com/chamelaion/chamelaion-go/compare/v0.6.0...v0.7.0)
+
+### Features
+
+* bump to 1.0.0 ([55e13ef](https://github.com/chamelaion/chamelaion-go/commit/55e13ef444c2160878b146fc5df4692d1c65ec6b))
+
 ## 0.6.0 (2026-04-30)
 
 Full Changelog: [v0.5.0...v0.6.0](https://github.com/chamelaion/chamelaion-go/compare/v0.5.0...v0.6.0)
