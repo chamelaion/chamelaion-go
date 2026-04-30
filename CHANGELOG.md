@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.6.0 (2026-04-30)
+
+Full Changelog: [v0.5.0...v0.6.0](https://github.com/chamelaion/chamelaion-go/compare/v0.5.0...v0.6.0)
+
+### Features
+
+* **api:** manual updates ([60ecd1c](https://github.com/chamelaion/chamelaion-go/commit/60ecd1c5c525dab26c2caf4041fac180ecd395f4))
+* support setting headers via env ([62dc0dd](https://github.com/chamelaion/chamelaion-go/commit/62dc0dd4b535e27920acc01c252fd314f0d5c0af))
+
 ## 0.5.0 (2026-04-27)
 
 Full Changelog: [v0.4.0...v0.5.0](https://github.com/chamelaion/chamelaion-go/compare/v0.4.0...v0.5.0)
