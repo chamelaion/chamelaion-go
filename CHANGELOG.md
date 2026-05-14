@@ -1,5 +1,44 @@
 # Changelog
 
+## 0.8.0 (2026-05-14)
+
+Full Changelog: [v0.7.0...v0.8.0](https://github.com/chamelaion/chamelaion-go/compare/v0.7.0...v0.8.0)
+
+### Features
+
+* **api:** manual updates ([60ecd1c](https://github.com/chamelaion/chamelaion-go/commit/60ecd1c5c525dab26c2caf4041fac180ecd395f4))
+* **api:** manual updates ([53ef4fa](https://github.com/chamelaion/chamelaion-go/commit/53ef4fa6e3b3ac8400c694300b92b53a13454290))
+* **api:** manual updates ([f46c391](https://github.com/chamelaion/chamelaion-go/commit/f46c39145311d1cf6c4f6576fc0419be870bce98))
+* **api:** manual updates ([9b21950](https://github.com/chamelaion/chamelaion-go/commit/9b219507930fdf752b4ddc297522a3a8deff8918))
+* **api:** manual updates ([8872c97](https://github.com/chamelaion/chamelaion-go/commit/8872c9745bda4bfaf61fe82e31517bafb6fd4dba))
+* **api:** manual updates ([99ef117](https://github.com/chamelaion/chamelaion-go/commit/99ef1173bd025ffbcfafc4e10c0f86dcc42f26ca))
+* bump to 1.0.0 ([55e13ef](https://github.com/chamelaion/chamelaion-go/commit/55e13ef444c2160878b146fc5df4692d1c65ec6b))
+* **client:** optimize json encoder for internal types ([a645350](https://github.com/chamelaion/chamelaion-go/commit/a645350c077a720eccdbaac850e887e63808db08))
+* **go:** add default http client with timeout ([b4f6e57](https://github.com/chamelaion/chamelaion-go/commit/b4f6e570994f63175701c4afbfe12ee328a655ab))
+* **internal:** support comma format in multipart form encoding ([827efa4](https://github.com/chamelaion/chamelaion-go/commit/827efa42d1cc8810ed3a64d3d2128a68ed83b6c5))
+* support setting headers via env ([62dc0dd](https://github.com/chamelaion/chamelaion-go/commit/62dc0dd4b535e27920acc01c252fd314f0d5c0af))
+
+
+### Bug Fixes
+
+* **go:** avoid panic when http.DefaultTransport is wrapped ([0722ae3](https://github.com/chamelaion/chamelaion-go/commit/0722ae3497ed82471af6672413cc6596941fed4d))
+* prevent duplicate ? in query params ([1efeef6](https://github.com/chamelaion/chamelaion-go/commit/1efeef6f28f86e4f05d6f3b86d6b9c64419c204f))
+
+
+### Chores
+
+* avoid embedding reflect.Type for dead code elimination ([270cf14](https://github.com/chamelaion/chamelaion-go/commit/270cf146abbec45f94efe2aba59085f5078628ae))
+* **ci:** skip lint on metadata-only changes ([abd0673](https://github.com/chamelaion/chamelaion-go/commit/abd06739a170d166b1209cade4f8a5c957234278))
+* **ci:** support opting out of skipping builds on metadata-only commits ([8c663ae](https://github.com/chamelaion/chamelaion-go/commit/8c663ae96ef96912577e6c0a4c8989e7dae6b853))
+* **client:** fix multipart serialisation of Default() fields ([67ae1c2](https://github.com/chamelaion/chamelaion-go/commit/67ae1c224c48a4cf1f430d1df64e70df91449d3f))
+* configure new SDK language ([7429166](https://github.com/chamelaion/chamelaion-go/commit/74291667ecc22889ed273a2f811d746a7bdc9f92))
+* **internal:** more robust bootstrap script ([35352b6](https://github.com/chamelaion/chamelaion-go/commit/35352b6aafdc54c2ce5c6e24e3ec15094bef7152))
+* **internal:** support default value struct tag ([697efe2](https://github.com/chamelaion/chamelaion-go/commit/697efe2821e7d63d4d9c6407916e25cc5284a845))
+* redact api-key headers in debug logs ([e48d9bd](https://github.com/chamelaion/chamelaion-go/commit/e48d9bdfb3280a4cdeabb4c3c9daa9ee44b27f5a))
+* remove unnecessary error check for url parsing ([0d4e173](https://github.com/chamelaion/chamelaion-go/commit/0d4e173b0faaada20764083c184a5bba6bb148b2))
+* update docs for api:"required" ([9318f65](https://github.com/chamelaion/chamelaion-go/commit/9318f6573bcc2808fa7aa3ded1a0a242a83ca102))
+* update SDK settings ([41f7a60](https://github.com/chamelaion/chamelaion-go/commit/41f7a60fdeace220a8f04a434297f31d6f1e7c38))
+
 ## 0.7.0 (2026-04-30)
 
 Full Changelog: [v0.6.0...v0.7.0](https://github.com/chamelaion/chamelaion-go/compare/v0.6.0...v0.7.0)
