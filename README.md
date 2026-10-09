@@ -28,7 +28,7 @@ Or to pin the version:
 <!-- x-release-please-start-version -->
 
 ```sh
-go get -u 'github.com/chamelaion/chamelaion-go@v0.7.0'
+go get -u 'github.com/chamelaion/chamelaion-go@v1.1.0'
 ```
 
 <!-- x-release-please-end -->
@@ -65,6 +65,26 @@ func main() {
 	fmt.Printf("%+v\n", response.Status)
 }
 
+```
+
+### Video translation
+
+```go
+response, err := client.VideoTranslate.Generate(context.TODO(), chamelaion.VideoTranslateGenerateParams{
+	Inputs: []chamelaion.VideoTranslateGenerateParamsInput{{
+		Type: "video",
+		URL:  "https://cdn.example.com/video.mp4",
+	}},
+	TargetLanguages: []string{"de"},
+	Config: map[string]any{
+		"speaker_voices": map[string]string{"0": "voice-id"},
+	},
+	WebhookURL: chamelaion.String("https://example.com/webhooks/video-translate"),
+})
+if err != nil {
+	panic(err)
+}
+fmt.Println(response.RequestID)
 ```
 
 ### Request fields

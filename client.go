@@ -24,6 +24,8 @@ type Client struct {
 	Users UserService
 	// Endpoints for creating and retrieving lip sync requests.
 	Lipsync LipsyncService
+	// Endpoints for creating and polling asynchronous video translations.
+	VideoTranslate VideoTranslateService
 }
 
 // DefaultClientOptions read from the environment (CHAMELAION_API_KEY,
@@ -64,6 +66,7 @@ func NewClient(opts ...option.RequestOption) (r Client) {
 	r.Health = NewHealthService(opts...)
 	r.Users = NewUserService(opts...)
 	r.Lipsync = NewLipsyncService(opts...)
+	r.VideoTranslate = NewVideoTranslateService(opts...)
 
 	return
 }

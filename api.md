@@ -40,3 +40,13 @@ Methods:
 
 - <code title="get /v1/lipsync/requests/{id}">client.Lipsync.Requests.<a href="https://pkg.go.dev/github.com/chamelaion/chamelaion-go#LipsyncRequestService.Get">Get</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, id <a href="https://pkg.go.dev/builtin#string">string</a>) (\*<a href="https://pkg.go.dev/github.com/chamelaion/chamelaion-go">chamelaion</a>.<a href="https://pkg.go.dev/github.com/chamelaion/chamelaion-go#LipsyncRequest">LipsyncRequest</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
 - <code title="get /v1/lipsync/requests">client.Lipsync.Requests.<a href="https://pkg.go.dev/github.com/chamelaion/chamelaion-go#LipsyncRequestService.List">List</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, query <a href="https://pkg.go.dev/github.com/chamelaion/chamelaion-go">chamelaion</a>.<a href="https://pkg.go.dev/github.com/chamelaion/chamelaion-go#LipsyncRequestListParams">LipsyncRequestListParams</a>) (\*<a href="https://pkg.go.dev/github.com/chamelaion/chamelaion-go">chamelaion</a>.<a href="https://pkg.go.dev/github.com/chamelaion/chamelaion-go#LipsyncRequestListResponse">LipsyncRequestListResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
+
+# Video Translate
+
+Methods:
+
+- `client.VideoTranslate.Generate(ctx, params)` starts translation from a remote video URL.
+- `client.VideoTranslate.GenerateWithMedia(ctx, params)` uploads video and optional source/target SRT files.
+- `client.VideoTranslate.Requests.Get(ctx, id)` retrieves one request.
+- `client.VideoTranslate.Requests.List(ctx, params)` lists requests.
+- `client.VideoTranslate.Voices.List(ctx, params)` lists available speaker voices.

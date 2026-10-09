@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.0 (2026-10-09)
+
+### Features
+
+* add video translation generation for URL and multipart media inputs
+* add video translation request retrieval and paginated listing
+* add voice discovery, subtitle inputs, speaker voice mapping, and webhooks
+
 ## 0.7.0 (2026-04-30)
 
 Full Changelog: [v0.6.0...v0.7.0](https://github.com/chamelaion/chamelaion-go/compare/v0.6.0...v0.7.0)
