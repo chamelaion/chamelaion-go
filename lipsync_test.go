@@ -32,10 +32,10 @@ func TestLipsyncGenerateWithOptionalParams(t *testing.T) {
 	_, err := client.Lipsync.Generate(context.TODO(), chamelaion.LipsyncGenerateParams{
 		Inputs: []chamelaion.LipsyncGenerateParamsInput{{
 			Type: "video",
-			URL:  "https://storage.googleapis.com/chamelaion-test-media/Example_Active_Speaker_Detection.mp4",
+			URL:  "https://storage.googleapis.com/chamelaion-test-media/video.mp4",
 		}, {
 			Type: "audio",
-			URL:  "https://storage.googleapis.com/chamelaion-test-media/Example_Active_Speaker_Detection.wav",
+			URL:  "https://storage.googleapis.com/chamelaion-test-media/audio.wav",
 		}},
 		DisableActiveSpeakerDetection: chamelaion.Bool(false),
 		ReferenceID:                   chamelaion.String("normal-lipsync-demo"),
