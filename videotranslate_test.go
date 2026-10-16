@@ -14,9 +14,9 @@ func TestVideoTranslateGenerateJSON(t *testing.T) {
 	body := VideoTranslateGenerateParams{
 		Inputs:          []VideoTranslateGenerateParamsInput{{Type: "video", URL: "https://example.com/video.mp4"}},
 		TargetLanguages: []string{"de"},
+		Model:           VideoTranslateModelExpressive,
 		WebhookURL:      String("https://hooks.example.com/video-translate"),
 		Config: map[string]any{
-			"tts_model":      VideoTranslateTTSModelElevenV4,
 			"speaker_voices": map[string]string{"0": "voice-id"},
 		},
 	}
@@ -24,7 +24,7 @@ func TestVideoTranslateGenerateJSON(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	for _, expected := range []string{`"target_languages":["de"]`, `"webhook_url":"https://hooks.example.com/video-translate"`, `"tts_model":"eleven_v4"`, `"speaker_voices"`} {
+	for _, expected := range []string{`"target_languages":["de"]`, `"webhook_url":"https://hooks.example.com/video-translate"`, `"model":"expressive"`, `"speaker_voices"`} {
 		if !bytes.Contains(encoded, []byte(expected)) {
 			t.Fatalf("body %s does not contain %s", encoded, expected)
 		}
@@ -35,7 +35,8 @@ func TestVideoTranslateMultipartUsesSRTPartNames(t *testing.T) {
 	body := VideoTranslateGenerateWithMediaParams{
 		Video:           File(strings.NewReader("video"), "input.mp4", "video/mp4"),
 		TargetLanguages: []string{"de", "fr"},
-		Config:          String(`{"tts_model":"eleven_multilingual_v2","speaker_voices":{"0":"voice-id"}}`),
+		Model:           VideoTranslateModelClassic,
+		Config:          String(`{"speaker_voices":{"0":"voice-id"}}`),
 		SourceSRT:       File(strings.NewReader("source"), "source.srt", "application/x-subrip"),
 		TargetSRTs: map[string]io.Reader{
 			"de": File(strings.NewReader("target"), "target.de.srt", "application/x-subrip"),
@@ -68,9 +69,12 @@ func TestVideoTranslateMultipartUsesSRTPartNames(t *testing.T) {
 	if fields["target_languages"] != "de,fr" {
 		t.Fatalf("target_languages = %q", fields["target_languages"])
 	}
-	for _, name := range []string{"video", "source_srt", "target_srt.de", "config"} {
+	for _, name := range []string{"video", "source_srt", "target_srt.de", "model", "config"} {
 		if _, ok := fields[name]; !ok {
 			t.Fatalf("missing multipart field %q: %#v", name, fields)
 		}
+	}
+	if fields["model"] != "classic" {
+		t.Fatalf("model = %q", fields["model"])
 	}
 }

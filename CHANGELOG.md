@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.0.0 (2026-10-16)
+
+### Features
+
+* add product-facing `expressive` and `classic` video translation models
+
+### Compatibility
+
+* retain deprecated `config.tts_model` for existing integrations
+
 ## 1.2.0 (2026-10-16)
 
 ### Features

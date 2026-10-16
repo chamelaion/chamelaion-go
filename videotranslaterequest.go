@@ -54,6 +54,7 @@ type VideoTranslateRequest struct {
 	DisableBackgroundAudio bool                                 `json:"disable_background_audio" api:"required"`
 	DisableLipSync         bool                                 `json:"disable_lip_sync" api:"required"`
 	Formality              bool                                 `json:"formality" api:"required"`
+	Model                  VideoTranslateModel                  `json:"model" api:"required"`
 	Config                 map[string]any                       `json:"config" api:"required"`
 	Status                 VideoTranslateRequestStatus          `json:"status" api:"required"`
 	CreatedAt              time.Time                            `json:"created_at" api:"required" format:"date-time"`

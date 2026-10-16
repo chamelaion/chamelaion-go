@@ -28,7 +28,7 @@ Or to pin the version:
 <!-- x-release-please-start-version -->
 
 ```sh
-go get -u 'github.com/chamelaion/chamelaion-go@v1.2.0'
+go get -u 'github.com/chamelaion/chamelaion-go@v2.0.0'
 ```
 
 <!-- x-release-please-end -->
@@ -76,6 +76,7 @@ response, err := client.VideoTranslate.Generate(context.TODO(), chamelaion.Video
 		URL:  "https://cdn.example.com/video.mp4",
 	}},
 	TargetLanguages: []string{"de"},
+	Model:           chamelaion.VideoTranslateModelExpressive,
 	Config: map[string]any{
 		"speaker_voices": map[string]string{"0": "voice-id"},
 	},
