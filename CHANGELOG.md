@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.0 (2026-10-16)
+
+### Features
+
+* add typed video translation speech model selection for CHAMELAION Expressive and Classic
+
 ## 1.1.0 (2026-10-09)
 
 ### Features
