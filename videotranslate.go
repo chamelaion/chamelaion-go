@@ -64,6 +64,16 @@ type VideoTranslateGenerateStatus string
 
 const VideoTranslateGenerateStatusSuccess VideoTranslateGenerateStatus = "success"
 
+// VideoTranslateTTSModel selects the speech model used for video translation.
+type VideoTranslateTTSModel string
+
+const (
+	// VideoTranslateTTSModelElevenV4 is CHAMELAION Expressive and is the default when omitted.
+	VideoTranslateTTSModelElevenV4 VideoTranslateTTSModel = "eleven_v4"
+	// VideoTranslateTTSModelElevenMultilingualV2 is CHAMELAION Classic.
+	VideoTranslateTTSModelElevenMultilingualV2 VideoTranslateTTSModel = "eleven_multilingual_v2"
+)
+
 type VideoTranslateGenerateParams struct {
 	Inputs                 []VideoTranslateGenerateParamsInput `json:"inputs,omitzero" api:"required"`
 	TargetLanguages        []string                            `json:"target_languages,omitzero" api:"required"`

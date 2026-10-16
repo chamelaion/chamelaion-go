@@ -15,13 +15,16 @@ func TestVideoTranslateGenerateJSON(t *testing.T) {
 		Inputs:          []VideoTranslateGenerateParamsInput{{Type: "video", URL: "https://example.com/video.mp4"}},
 		TargetLanguages: []string{"de"},
 		WebhookURL:      String("https://hooks.example.com/video-translate"),
-		Config:          map[string]any{"speaker_voices": map[string]string{"0": "voice-id"}},
+		Config: map[string]any{
+			"tts_model":      VideoTranslateTTSModelElevenV4,
+			"speaker_voices": map[string]string{"0": "voice-id"},
+		},
 	}
 	encoded, err := json.Marshal(body)
 	if err != nil {
 		t.Fatal(err)
 	}
-	for _, expected := range []string{`"target_languages":["de"]`, `"webhook_url":"https://hooks.example.com/video-translate"`, `"speaker_voices"`} {
+	for _, expected := range []string{`"target_languages":["de"]`, `"webhook_url":"https://hooks.example.com/video-translate"`, `"tts_model":"eleven_v4"`, `"speaker_voices"`} {
 		if !bytes.Contains(encoded, []byte(expected)) {
 			t.Fatalf("body %s does not contain %s", encoded, expected)
 		}
@@ -32,7 +35,7 @@ func TestVideoTranslateMultipartUsesSRTPartNames(t *testing.T) {
 	body := VideoTranslateGenerateWithMediaParams{
 		Video:           File(strings.NewReader("video"), "input.mp4", "video/mp4"),
 		TargetLanguages: []string{"de", "fr"},
-		Config:          String(`{"speaker_voices":{"0":"voice-id"}}`),
+		Config:          String(`{"tts_model":"eleven_multilingual_v2","speaker_voices":{"0":"voice-id"}}`),
 		SourceSRT:       File(strings.NewReader("source"), "source.srt", "application/x-subrip"),
 		TargetSRTs: map[string]io.Reader{
 			"de": File(strings.NewReader("target"), "target.de.srt", "application/x-subrip"),
