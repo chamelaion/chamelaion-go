@@ -2,7 +2,7 @@ package param
 
 import (
 	"encoding/json"
-	"github.com/chamelaion/chamelaion-go/internal/encoding/json/sentinel"
+	"github.com/chamelaion/chamelaion-go/v2/internal/encoding/json/sentinel"
 	"reflect"
 )
 

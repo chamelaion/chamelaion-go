@@ -18,10 +18,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/chamelaion/chamelaion-go/internal"
-	"github.com/chamelaion/chamelaion-go/internal/apierror"
-	"github.com/chamelaion/chamelaion-go/internal/apiform"
-	"github.com/chamelaion/chamelaion-go/internal/apiquery"
+	"github.com/chamelaion/chamelaion-go/v2/internal"
+	"github.com/chamelaion/chamelaion-go/v2/internal/apierror"
+	"github.com/chamelaion/chamelaion-go/v2/internal/apiform"
+	"github.com/chamelaion/chamelaion-go/v2/internal/apiquery"
 )
 
 func getDefaultHeaders() map[string]string {

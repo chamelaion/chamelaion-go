@@ -9,8 +9,8 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/chamelaion/chamelaion-go/internal/requestconfig"
-	"github.com/chamelaion/chamelaion-go/option"
+	"github.com/chamelaion/chamelaion-go/v2/internal/requestconfig"
+	"github.com/chamelaion/chamelaion-go/v2/option"
 )
 
 // Client creates a struct with services and top level methods that help with

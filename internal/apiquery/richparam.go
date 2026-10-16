@@ -1,7 +1,7 @@
 package apiquery
 
 import (
-	"github.com/chamelaion/chamelaion-go/packages/param"
+	"github.com/chamelaion/chamelaion-go/v2/packages/param"
 	"reflect"
 )
 

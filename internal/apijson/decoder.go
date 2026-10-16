@@ -7,7 +7,7 @@ package apijson
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/chamelaion/chamelaion-go/packages/param"
+	"github.com/chamelaion/chamelaion-go/v2/packages/param"
 	"reflect"
 	"strconv"
 	"sync"

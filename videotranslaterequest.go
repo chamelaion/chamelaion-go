@@ -11,12 +11,12 @@ import (
 	"slices"
 	"time"
 
-	"github.com/chamelaion/chamelaion-go/internal/apijson"
-	"github.com/chamelaion/chamelaion-go/internal/apiquery"
-	"github.com/chamelaion/chamelaion-go/internal/requestconfig"
-	"github.com/chamelaion/chamelaion-go/option"
-	"github.com/chamelaion/chamelaion-go/packages/param"
-	"github.com/chamelaion/chamelaion-go/packages/respjson"
+	"github.com/chamelaion/chamelaion-go/v2/internal/apijson"
+	"github.com/chamelaion/chamelaion-go/v2/internal/apiquery"
+	"github.com/chamelaion/chamelaion-go/v2/internal/requestconfig"
+	"github.com/chamelaion/chamelaion-go/v2/option"
+	"github.com/chamelaion/chamelaion-go/v2/packages/param"
+	"github.com/chamelaion/chamelaion-go/v2/packages/respjson"
 )
 
 type VideoTranslateRequestService struct{ options []option.RequestOption }

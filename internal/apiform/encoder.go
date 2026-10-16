@@ -13,7 +13,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/chamelaion/chamelaion-go/packages/param"
+	"github.com/chamelaion/chamelaion-go/v2/packages/param"
 )
 
 var encoders sync.Map // map[encoderEntry]encoderFunc

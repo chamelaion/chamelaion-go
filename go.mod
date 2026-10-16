@@ -1,4 +1,4 @@
-module github.com/chamelaion/chamelaion-go
+module github.com/chamelaion/chamelaion-go/v2
 
 go 1.22
 

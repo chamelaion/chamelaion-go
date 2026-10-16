@@ -1,7 +1,7 @@
 package apijson
 
 import (
-	"github.com/chamelaion/chamelaion-go/packages/respjson"
+	"github.com/chamelaion/chamelaion-go/v2/packages/respjson"
 	"reflect"
 )
 

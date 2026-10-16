@@ -3,8 +3,8 @@
 package chamelaion
 
 import (
-	"github.com/chamelaion/chamelaion-go/internal/apierror"
-	"github.com/chamelaion/chamelaion-go/packages/param"
+	"github.com/chamelaion/chamelaion-go/v2/internal/apierror"
+	"github.com/chamelaion/chamelaion-go/v2/packages/param"
 )
 
 // aliased to make [param.APIUnion] private when embedding

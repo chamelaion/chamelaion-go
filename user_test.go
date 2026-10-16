@@ -8,9 +8,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/chamelaion/chamelaion-go"
-	"github.com/chamelaion/chamelaion-go/internal/testutil"
-	"github.com/chamelaion/chamelaion-go/option"
+	"github.com/chamelaion/chamelaion-go/v2"
+	"github.com/chamelaion/chamelaion-go/v2/internal/testutil"
+	"github.com/chamelaion/chamelaion-go/v2/option"
 )
 
 func TestUserGetCurrent(t *testing.T) {

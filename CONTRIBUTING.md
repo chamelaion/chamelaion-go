@@ -41,7 +41,7 @@ To use a local version of this library from source in another project, edit the 
 directive. This can be done through the CLI with the following:
 
 ```sh
-$ go mod edit -replace github.com/chamelaion/chamelaion-go=/path/to/chamelaion-go
+$ go mod edit -replace github.com/chamelaion/chamelaion-go/v2=/path/to/chamelaion-go
 ```
 
 ## Running tests

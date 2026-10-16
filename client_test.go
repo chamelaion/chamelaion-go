@@ -10,9 +10,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/chamelaion/chamelaion-go"
-	"github.com/chamelaion/chamelaion-go/internal"
-	"github.com/chamelaion/chamelaion-go/option"
+	"github.com/chamelaion/chamelaion-go/v2"
+	"github.com/chamelaion/chamelaion-go/v2/internal"
+	"github.com/chamelaion/chamelaion-go/v2/option"
 )
 
 type closureTransport struct {
