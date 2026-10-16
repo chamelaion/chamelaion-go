@@ -74,6 +74,14 @@ const (
 	VideoTranslateTTSModelElevenMultilingualV2 VideoTranslateTTSModel = "eleven_multilingual_v2"
 )
 
+// VideoTranslateModel is the product-facing speech model.
+type VideoTranslateModel string
+
+const (
+	VideoTranslateModelExpressive VideoTranslateModel = "expressive"
+	VideoTranslateModelClassic    VideoTranslateModel = "classic"
+)
+
 type VideoTranslateGenerateParams struct {
 	Inputs                 []VideoTranslateGenerateParamsInput `json:"inputs,omitzero" api:"required"`
 	TargetLanguages        []string                            `json:"target_languages,omitzero" api:"required"`
@@ -81,6 +89,7 @@ type VideoTranslateGenerateParams struct {
 	DisableBackgroundAudio param.Opt[bool]                     `json:"disable_background_audio,omitzero"`
 	DisableLipSync         param.Opt[bool]                     `json:"disable_lip_sync,omitzero"`
 	Formality              param.Opt[bool]                     `json:"formality,omitzero"`
+	Model                  VideoTranslateModel                 `json:"model,omitzero"`
 	ReferenceID            param.Opt[string]                   `json:"reference_id,omitzero"`
 	SourceLanguage         param.Opt[string]                   `json:"source_language,omitzero"`
 	WebhookURL             param.Opt[string]                   `json:"webhook_url,omitzero"`
@@ -112,6 +121,7 @@ type VideoTranslateGenerateWithMediaParams struct {
 	DisableBackgroundAudio param.Opt[bool]      `json:"disable_background_audio,omitzero"`
 	DisableLipSync         param.Opt[bool]      `json:"disable_lip_sync,omitzero"`
 	Formality              param.Opt[bool]      `json:"formality,omitzero"`
+	Model                  VideoTranslateModel  `json:"model,omitzero"`
 	ReferenceID            param.Opt[string]    `json:"reference_id,omitzero"`
 	SourceLanguage         param.Opt[string]    `json:"source_language,omitzero"`
 	SourceSRT              io.Reader            `json:"source_srt,omitzero" format:"binary"`
