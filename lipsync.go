@@ -10,12 +10,12 @@ import (
 	"net/http"
 	"slices"
 
-	"github.com/chamelaion/chamelaion-go/internal/apiform"
-	"github.com/chamelaion/chamelaion-go/internal/apijson"
-	"github.com/chamelaion/chamelaion-go/internal/requestconfig"
-	"github.com/chamelaion/chamelaion-go/option"
-	"github.com/chamelaion/chamelaion-go/packages/param"
-	"github.com/chamelaion/chamelaion-go/packages/respjson"
+	"github.com/chamelaion/chamelaion-go/v2/internal/apiform"
+	"github.com/chamelaion/chamelaion-go/v2/internal/apijson"
+	"github.com/chamelaion/chamelaion-go/v2/internal/requestconfig"
+	"github.com/chamelaion/chamelaion-go/v2/option"
+	"github.com/chamelaion/chamelaion-go/v2/packages/param"
+	"github.com/chamelaion/chamelaion-go/v2/packages/respjson"
 )
 
 // Endpoints for creating and retrieving lip sync requests.

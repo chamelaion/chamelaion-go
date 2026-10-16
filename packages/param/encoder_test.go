@@ -7,8 +7,8 @@ import (
 	"testing"
 	"time"
 
-	shimjson "github.com/chamelaion/chamelaion-go/internal/encoding/json"
-	"github.com/chamelaion/chamelaion-go/packages/param"
+	shimjson "github.com/chamelaion/chamelaion-go/v2/internal/encoding/json"
+	"github.com/chamelaion/chamelaion-go/v2/packages/param"
 )
 
 type Struct struct {

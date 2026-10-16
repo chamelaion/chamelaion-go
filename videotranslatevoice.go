@@ -8,10 +8,10 @@ import (
 	"net/url"
 	"slices"
 
-	"github.com/chamelaion/chamelaion-go/internal/apiquery"
-	"github.com/chamelaion/chamelaion-go/internal/requestconfig"
-	"github.com/chamelaion/chamelaion-go/option"
-	"github.com/chamelaion/chamelaion-go/packages/param"
+	"github.com/chamelaion/chamelaion-go/v2/internal/apiquery"
+	"github.com/chamelaion/chamelaion-go/v2/internal/requestconfig"
+	"github.com/chamelaion/chamelaion-go/v2/option"
+	"github.com/chamelaion/chamelaion-go/v2/packages/param"
 )
 
 type VideoTranslateVoiceService struct{ options []option.RequestOption }

@@ -1,7 +1,7 @@
 package sentinel
 
 import (
-	"github.com/chamelaion/chamelaion-go/internal/encoding/json/shims"
+	"github.com/chamelaion/chamelaion-go/v2/internal/encoding/json/shims"
 	"reflect"
 	"sync"
 )

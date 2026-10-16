@@ -3,7 +3,7 @@ package param
 import (
 	"encoding/json"
 	"fmt"
-	shimjson "github.com/chamelaion/chamelaion-go/internal/encoding/json"
+	shimjson "github.com/chamelaion/chamelaion-go/v2/internal/encoding/json"
 	"time"
 )
 
